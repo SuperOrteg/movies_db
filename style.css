@@ -22,6 +22,10 @@ body {
   width: 300px;
 }
 
+#modal-img {
+  max-height: 75vh;
+}
+
 .inputKeywordsHandle ul {
   margin: 0;
   position: absolute;
@@ -86,8 +90,9 @@ article {
   margin: 20px 0;
   border: solid 1px lightgray;
   padding: 20px;
-  width: 45%;
+  width: 28%;
   border-radius: 10px;
+  text-align: center;
 }
 
 article h2 {
