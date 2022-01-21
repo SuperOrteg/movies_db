@@ -5,6 +5,21 @@ const title = document.querySelector('.modal-title');
 const content = document.querySelector('.modal-body');
 const image = document.querySelector('#modal-img');
 
+const lazyL = () => {
+  let observer = new IntersectionObserver(entries => {
+    entries.forEach((entry) => {
+      let card = document.getElementById(movie.imdbID);
+      observer.observe(card.img);
+        if (entry.isIntersecting) {
+            const lazyImage = entry.target
+            lazyImage.src = lazyImage.dataset.src
+        };
+    });
+  });
+};
+
+// lazyL();
+
 const showFeedPost = (movie) => {
     const placeholder = document.getElementsByClassName('articlesList')[0];
   const feedPost = document.createElement("article")
@@ -13,7 +28,7 @@ const showFeedPost = (movie) => {
             <h2>${movie.Title}</h2>
             <img src="${movie.Poster}">
             <p>${movie.Year}</p>
-            <button class="btn btn-secondary lzy_img" id="${movie.imdbID}">Read More</button>
+            <button class="btn btn-secondary" id="${movie.imdbID}">Read More</button>
     `;
 
     placeholder.appendChild(feedPost);
@@ -93,5 +108,3 @@ window.addEventListener("DOMContentLoaded", () => {
       cleanAll();
     });
 });
-
-// data.Search.forEach(movies => showFeedPost(movies));
